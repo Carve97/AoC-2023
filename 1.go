@@ -1,4 +1,4 @@
-package AoC_2023
+package main
 
 import "unicode"
 

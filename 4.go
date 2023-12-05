@@ -1,4 +1,4 @@
-package AoC_2023
+package main
 
 import (
 	"fmt"
@@ -26,14 +26,7 @@ func Solve4() {
 				cnt++
 			}
 		}
-		if cnt == -1 {
-			continue
-		}
-		val := 1
-		for ; cnt > 0; cnt-- {
-			val = val << 1
-		}
-		res += val
+		res += 1 << max(cnt, 0)
 	}
 	print(res)
 }
@@ -67,9 +60,8 @@ func Solve4_2() {
 			mr[gn+cnt] += mr[gn]
 		}
 	}
-	for k, v := range mr {
+	for _, v := range mr {
 		res += v
-		print(k, v)
 	}
 	print(res)
 }
