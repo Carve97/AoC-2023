@@ -255,7 +255,7 @@ func Solve10_2() {
 				continue
 			}
 
-			if !dir.canMove(a[s[0]][s[1]]) {
+			if b[s[0]][s[1]] == '*' && !dir.canMove(a[s[0]][s[1]]) {
 				continue
 			}
 
