@@ -43,5 +43,5 @@ func main() {
 	defer writer.Flush()
 	lineReader.Split(bufio.ScanLines)
 
-	Solve14_2()
+	Solve15_2()
 }
