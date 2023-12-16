@@ -69,7 +69,7 @@ func Solve15_2() {
 	f, _ := os.Open("./data/15")
 	reader = bufio.NewReader(f)
 	for {
-		b, err := reader.ReadByte()
+		b, _ := reader.ReadByte()
 		if b == '-' || b == '=' {
 			if b == '=' {
 				focal, _ := reader.ReadByte()
@@ -80,7 +80,7 @@ func Solve15_2() {
 			}
 
 			// next will be either ',' or EOF
-			_, err = reader.ReadByte()
+			_, err := reader.ReadByte()
 			if err != nil {
 				break
 			}
