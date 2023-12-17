@@ -39,9 +39,37 @@ func lastElem[T any](slice []T) T {
 	return slice[len(slice)-1]
 }
 
+type keyVal[k comparable, v any] struct {
+	key k
+	val v
+}
+
+type intHeap[v any] struct {
+	slice []keyVal[int, v]
+}
+
+func (h *intHeap[v]) Len() int {
+	return len(h.slice)
+}
+func (h *intHeap[v]) Swap(i, j int) {
+	h.slice[i], h.slice[j] = h.slice[j], h.slice[i]
+}
+func (h *intHeap[v]) Less(i, j int) bool {
+	return h.slice[i].key < h.slice[j].key
+}
+func (h *intHeap[v]) Push(value any) {
+	val := value.(keyVal[int, v])
+	h.slice = append(h.slice, val)
+}
+func (h *intHeap[v]) Pop() any {
+	val := h.slice[len(h.slice)-1]
+	h.slice = h.slice[:len(h.slice)-1]
+	return val
+}
+
 func main() {
 	defer writer.Flush()
 	lineReader.Split(bufio.ScanLines)
 
-	Solve16_2()
+	Solve17_2()
 }
