@@ -71,5 +71,5 @@ func main() {
 	defer writer.Flush()
 	lineReader.Split(bufio.ScanLines)
 
-	Solve19_2()
+	Solve20_2()
 }
